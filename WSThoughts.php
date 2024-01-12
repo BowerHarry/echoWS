@@ -7,7 +7,6 @@ class WSThoughts {
 
     function __construct($proc, $conn) {
         $this->conn = $conn;
-        echo "WSThoughts";
         switch($proc) {
             case "ThoughtSelect":
                 $this->ThoughtSelect();

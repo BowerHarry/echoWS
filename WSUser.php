@@ -7,7 +7,6 @@ class WSUser {
 
     function __construct($proc, $conn) {
         $this->conn = $conn;
-        echo "WSUser";
         switch($proc) {
             case "UserSelect":
                 $this->UserSelect();
