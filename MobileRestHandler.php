@@ -7,7 +7,6 @@ class MobileRestHandler extends SimpleRest
 
     function getAllMobiles()
     {
-        echo "in function";
         $mobile = new Mobile();
         $rawData = $mobile->getAllMobile();
 
@@ -20,7 +19,6 @@ class MobileRestHandler extends SimpleRest
             $statusCode = 200;
         }
 
-        echo "json";
         $response = $this->encodeJson($rawData);
         echo $response;
     }

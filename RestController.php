@@ -2,10 +2,9 @@
 
 require_once ("MobileRestHandler.php");
 
-$view = "all";
-// $view = "";
-// if (isset($_GET["view"]))
-//     $view = (string)$_GET["view"];
+$view = "";
+if (isset($_GET["view"]))
+    $view = $_GET["view"];
 /*
  * controls the RESTful services
  * URL mapping
