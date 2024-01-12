@@ -37,5 +37,7 @@ switch ($view) {
 
     default:
         echo "NOTHING HAPPENING HERE";
+        echo gettype($view);
+        echo $view;
 }
 ?>
