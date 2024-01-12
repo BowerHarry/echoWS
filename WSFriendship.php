@@ -3,6 +3,7 @@
 class WSFriendship {
 
     function __construct($proc, $conn) {
+        echo "WSFriendship";
         switch($proc) {
             case "FriendshipSelect":
                 FriendshipSelect($conn);
