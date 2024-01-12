@@ -2,11 +2,16 @@
 
 class WSUser {
 
+    public $proc;
+    public $conn;
+
     function __construct($proc, $conn) {
+        $this->conn = $conn;
         echo "WSUser";
+
         switch($proc) {
             case "UserSelect":
-                UserSelect($conn);
+                UserSelect();
                 break;
             default:
                 echo "Procedure";
@@ -15,10 +20,10 @@ class WSUser {
         }
     }
 
-    function UserSelect($conn) {
+    function UserSelect() {
         echo "UserSelect";
         $sql = "SELECT * FROM eUser";
-        $stmt = sqlsrv_query($conn, $sql);
+        $stmt = sqlsrv_query($this->conn, $sql);
 
         $rows = array();
         while($r = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {

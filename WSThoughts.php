@@ -2,11 +2,15 @@
 
 class WSThoughts {
 
+    public $proc;
+    public $conn;
+
     function __construct($proc, $conn) {
+        $this->conn = $conn;
         echo "WSThoughts";
         switch($proc) {
             case "ThoughtSelect":
-                ThoughtSelect($conn);
+                ThoughtSelect();
                 break;
             default:
                 echo "Procedure";
@@ -15,10 +19,10 @@ class WSThoughts {
         }
     }
 
-    function ThoughtSelect($conn) {
+    function ThoughtSelect() {
         echo "ThoughtSelect";
         $sql = "SELECT * FROM eThoughts";
-        $stmt = sqlsrv_query($conn, $sql);
+        $stmt = sqlsrv_query($this->conn, $sql);
 
         $rows = array();
         while($r = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {

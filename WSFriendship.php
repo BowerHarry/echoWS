@@ -2,11 +2,15 @@
 
 class WSFriendship {
 
+    public $proc;
+    public $conn;
+
     function __construct($proc, $conn) {
+        $this->conn = $conn;
         echo "WSFriendship";
         switch($proc) {
             case "FriendshipSelect":
-                FriendshipSelect($conn);
+                FriendshipSelect();
                 break;
             default:
                 echo "Procedure";
@@ -18,7 +22,7 @@ class WSFriendship {
     function FriendshipSelect($conn) {
         echo "FriendshipSelect";
         $sql = "SELECT * FROM rFriendships";
-        $stmt = sqlsrv_query($conn, $sql);
+        $stmt = sqlsrv_query($this->conn, $sql);
 
         $rows = array();
         while($r = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
