@@ -10,7 +10,7 @@ class WSThoughts {
         echo "WSThoughts";
         switch($proc) {
             case "ThoughtSelect":
-                ThoughtSelect();
+                $this->ThoughtSelect();
                 break;
             default:
                 echo "Procedure";

@@ -10,8 +10,7 @@ class WSUser {
         echo "WSUser";
         switch($proc) {
             case "UserSelect":
-                echo "Logging: case";
-                UserSelect();
+                $this->UserSelect();
                 break;
             default:
                 echo "Procedure";

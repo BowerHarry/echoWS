@@ -10,7 +10,7 @@ class WSFriendship {
         echo "WSFriendship";
         switch($proc) {
             case "FriendshipSelect":
-                FriendshipSelect();
+                $this->FriendshipSelect();
                 break;
             default:
                 echo "Procedure";
@@ -19,7 +19,7 @@ class WSFriendship {
         }
     }
 
-    function FriendshipSelect($conn) {
+    function FriendshipSelect() {
         echo "FriendshipSelect";
         $sql = "SELECT * FROM rFriendships";
         $stmt = sqlsrv_query($this->conn, $sql);
