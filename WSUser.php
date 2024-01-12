@@ -20,7 +20,6 @@ class WSUser {
     }
 
     function UserSelect() {
-        echo "UserSelect";
         $sql = "SELECT * FROM eUser";
         $stmt = sqlsrv_query($this->conn, $sql);
 
