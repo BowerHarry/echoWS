@@ -6,8 +6,8 @@ class WSTest {
     public $conn;
 
     function __construct($sql, $conn) {
-        $stmt = sqlsrv_query($this->conn, $sql);
-        
+        $stmt = sqlsrv_query($conn, $sql);
+
         $rows = array();
         while($r = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
             $rows[] = $r;
