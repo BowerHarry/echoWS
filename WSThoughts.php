@@ -12,20 +12,20 @@ if( $conn ) {
     die(print_r( sqlsrv_errors(), true));
 }
 
-$sql = "SELECT * FROM eThoughts";
+$sql = "SELECT * FROM eThoughts FOR JSON AUTO";
 $stmt = sqlsrv_query($conn, $sql);
 if(sqlsrv_fetch($stmt) === false)
 {
     echo "couldn't fetch data";
 }
 
-$res = [];
-while($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_NUMERIC)) {
-    $res[] = $row;
+$json = '';
+while($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_BOTH)) {
+    $json = $row[0];
 }
 
 sqlsrv_free_stmt($stmt);
 sqlsrv_close($conn);
-echo json_encode(['data' => $res]);
+echo $json;
 echo "Connection closed";
 ?>
