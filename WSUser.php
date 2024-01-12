@@ -1,11 +1,11 @@
 <?php
 
-class WSThoughts {
+class WSUser {
 
     function __construct($proc, $conn) {
         switch($proc) {
-            case "ThoughtSelect":
-                ThoughtSelect($conn);
+            case "UserSelect":
+                UserSelect($conn);
                 break;
             default:
                 echo "Procedure";
@@ -14,8 +14,8 @@ class WSThoughts {
         }
     }
 
-    function ThoughtSelect($conn) {
-        $sql = "SELECT * FROM eThoughts";
+    function UserSelect($conn) {
+        $sql = "SELECT * FROM eUser";
         $stmt = sqlsrv_query($conn, $sql);
 
         $rows = array();
