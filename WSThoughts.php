@@ -15,6 +15,7 @@ class WSThoughts {
     }
 
     function ThoughtSelect($conn) {
+        echo "ThoughtSelect";
         $sql = "SELECT * FROM eThoughts";
         $stmt = sqlsrv_query($conn, $sql);
 

@@ -15,6 +15,7 @@ class WSFriendship {
     }
 
     function FriendshipSelect($conn) {
+        echo "FriendshipSelect";
         $sql = "SELECT * FROM rFriendships";
         $stmt = sqlsrv_query($conn, $sql);
 
