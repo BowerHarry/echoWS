@@ -4,6 +4,8 @@
 require_once ("WSThoughts.php");
 require_once ("WSUser.php");
 require_once ("WSFriendship.php");
+require_once ("WSTest.php");
+
 
 // Handle URL arguments
 if (isset($_GET["ws"]) and isset($_GET["proc"]))
@@ -43,7 +45,9 @@ switch ($ws) {
     case "friendship":
         $wsFriendship = new WSFriendship($proc, $conn);
         break;
-
+    case "test":
+        $wsTest = new WSTest($proc, $conn);
+        break;
     default:
         echo "WS";
         echo $ws;
