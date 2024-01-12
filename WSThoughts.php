@@ -12,7 +12,7 @@ if( $conn ) {
     die(print_r( sqlsrv_errors(), true));
 }
 
-$sql = "SELECT * FROM eThoughts";
+$sql = "SELECT * FROM eUser";
 $stmt = sqlsrv_query($conn, $sql);
 
 $rows = array();
