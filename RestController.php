@@ -9,7 +9,7 @@ if (isset($_GET["view"]))
  * controls the RESTful services
  * URL mapping
  */
-switch (string($view)) {
+switch (trim($view)) {
 
     case "all":
         // to handle REST Url /mobile/list/
