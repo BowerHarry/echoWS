@@ -22,6 +22,9 @@ switch ($view) {
         $mobileRestHandler->getMobile($_GET["id"]);
         break;
 
+    case "helloworld";
+        echo "helloworld";
+
     case "":
         // 404 - not found;
         break;
