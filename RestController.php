@@ -34,5 +34,8 @@ switch ($view) {
         echo "EMPTY";
         // 404 - not found;
         break;
+
+    default:
+        echo "NOTHING HAPPENING HERE";
 }
 ?>
