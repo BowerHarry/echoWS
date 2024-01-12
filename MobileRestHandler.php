@@ -7,6 +7,7 @@ class MobileRestHandler extends SimpleRest
 
     function getAllMobiles()
     {
+        echo "in function";
         $mobile = new Mobile();
         $rawData = $mobile->getAllMobile();
 
@@ -23,12 +24,15 @@ class MobileRestHandler extends SimpleRest
         $this->setHttpHeaders($requestContentType, $statusCode);
 
         if (strpos($requestContentType, 'application/json') !== false) {
+            echo "json";
             $response = $this->encodeJson($rawData);
             echo $response;
         } else if (strpos($requestContentType, 'text/html') !== false) {
+            echo "html";
             $response = $this->encodeHtml($rawData);
             echo $response;
         } else if (strpos($requestContentType, 'application/xml') !== false) {
+            echo "xml";
             $response = $this->encodeXml($rawData);
             echo $response;
         }

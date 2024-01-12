@@ -20,6 +20,7 @@ class Mobile
      */
     public function getAllMobile()
     {
+        echo "in getallmobile class";
         return $this->mobiles;
     }
 
