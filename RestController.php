@@ -20,7 +20,7 @@ switch ($view) {
 
     case "single":
         // to handle REST Url /mobile/show/<id>/
-        echo "GETTING SOME MOBILES"
+        echo "GETTING SOME MOBILES";
         $mobileRestHandler = new MobileRestHandler();
         $mobileRestHandler->getMobile($_GET["id"]);
         break;
