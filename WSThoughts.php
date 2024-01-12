@@ -14,18 +14,11 @@ if( $conn ) {
 
 $sql = "SELECT * FROM eThoughts";
 $stmt = sqlsrv_query($conn, $sql);
-if(sqlsrv_fetch($stmt) === false)
-{
-    die( print_r( sqlsrv_errors(), true) );
+
+$rows = array();
+while($r = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
+    $rows[] = $r;
 }
 
-$json = array();
-while($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
-    $json[] = $row;
-}
-
-sqlsrv_free_stmt($stmt);
-sqlsrv_close($conn);
-echo $json_encode(array("data" => array_values($json)));
-echo "Connection closed";
+echo json_encode($rows);
 ?>
