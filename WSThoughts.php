@@ -18,8 +18,14 @@ if(sqlsrv_fetch($stmt) === false)
 {
     echo "couldn't fetch data";
 }
-echo $stmt;
 
+$res = [];
+while($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_NUMERIC)) {
+    $res[] = $row;
+}
+
+sqlsrv_free_stmt($stmt);
 sqlsrv_close($conn);
+echo json_encode(['data' => $res]);
 echo "Connection closed";
 ?>
