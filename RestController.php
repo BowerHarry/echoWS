@@ -2,35 +2,36 @@
 
 require_once ("MobileRestHandler.php");
 
-$view = "";
-if (isset($_GET["view"]))
-    $view = (string)$_GET["view"];
+$view = "all";
+// $view = "";
+// if (isset($_GET["view"]))
+//     $view = (string)$_GET["view"];
 /*
  * controls the RESTful services
  * URL mapping
  */
 switch ($view) {
 
-    case 'all':
+    case "all":
         // to handle REST Url /mobile/list/
         echo "GETTING ALL MOBILES";
         $mobileRestHandler = new MobileRestHandler();
         $mobileRestHandler->getAllMobiles();
         break;
 
-    case 'single':
+    case "single":
         // to handle REST Url /mobile/show/<id>/
         echo "GETTING SOME MOBILES";
         $mobileRestHandler = new MobileRestHandler();
         $mobileRestHandler->getMobile($_GET["id"]);
         break;
 
-    case 'test';
+    case "test";
         echo "I HEAR YOU";
         break;
 
 
-    case '':
+    case "":
         echo "EMPTY";
         // 404 - not found;
         break;
