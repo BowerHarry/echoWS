@@ -1,6 +1,6 @@
 <?php
 
-$serverName = "//bathentrepreneurs.database.windows.net\\sqlexpress";
+$serverName = "bathentrepreneurs.database.windows.net";
 
 $connectionInfo = array("Database"=>"bathentrepreneurs", "UID"=> "harrybower","PWD"=> "hA3LLL!aBY8-sR");
 $conn = sqlsrv_connect($serverName, $connectionInfo);
