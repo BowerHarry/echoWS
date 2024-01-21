@@ -19,7 +19,8 @@ class WSThoughts {
     }
 
     function ThoughtSelect() {
-        $sql = "SELECT * FROM eThoughts";
+        //$sql = "SELECT * FROM eThoughts";
+        $sql = "SELECT dbo.InitCap(u.Forename) + ' ' + dbo.InitCap(u.Surname) AS FullName, u.Username, t.Text, CAST(t.CreatedDateTime AS date) AS [Date] FROM eThoughts t JOIN eUser u ON t.eUserID = u.ID";
         $stmt = sqlsrv_query($this->conn, $sql);
 
         $rows = array();
