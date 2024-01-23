@@ -6,14 +6,12 @@ class WSUser {
     public $conn;
 
     function __construct($proc, $conn, $args) {
-        echo 'made it here2';
         $this->conn = $conn;
         switch($proc) {
             case "UserSelect":
                 $this->UserSelect();
                 break;
             case "LoginCredentialCheck":
-                echo 'made it here3';
                 $this->LoginCredentialCheck($args);
                 break;
             default:
@@ -36,14 +34,14 @@ class WSUser {
     }
 
     function LoginCredentialCheck($args) {
-        echo 'made it here1';
         $username = $args->username;
         $encodedPassword = $args->encodedPassword;
-        $sql = "EXEC LoginCredentialCheck " + '$username' + ' ' + '$encodedPassword';
+        $sql = "EXEC LoginCredentialCheck " + $username + ' ' + $encodedPassword;
         $stmt = sqlsrv_query($this->conn, $sql);
 
         $rows = array();
         while($r = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
+            echo $r;
             $rows[] = $r;
         }
         echo 'made it here';
