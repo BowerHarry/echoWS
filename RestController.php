@@ -18,6 +18,7 @@ if (isset($_GET["ws"]) and isset($_GET["proc"]))
 }
 
 $args = file_get_contents('php://input');
+echo $args;
 $args = json_decode($args);
 echo $args;
 
