@@ -36,7 +36,9 @@ class WSUser {
     function LoginCredentialCheck($args) {
         echo 'made it here';
         $username = $args->username;
+        echo $username;
         $encodedPassword = $args->encodedPassword;
+        echo $encodedPassword;
         $sql = 'EXEC LoginCredentialCheck ' + $username + ' ' + $encodedPassword;
         echo $sql;
         $stmt = sqlsrv_query($this->conn, $sql);
