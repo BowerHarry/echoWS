@@ -1,5 +1,5 @@
 <?php
-
+ini_set("allow_url_fopen", true);
 // Import classes
 require_once ("WSThoughts.php");
 require_once ("WSUser.php");
