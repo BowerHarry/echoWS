@@ -12,17 +12,13 @@ if (isset($_GET["ws"]) and isset($_GET["proc"]))
 {
     $ws = trim($_GET["ws"]);
     $proc = trim($_GET["proc"]);
-    $args = "";
 } else {
     echo "WS and PROCEDURE not defined";
     die();
 }
 
-if (isset($_GET["args"]))
-{
-    $args = trim($_GET["args"]);
-    $args = json_decode($args);
-}
+$args = file_get_contents('php://input');
+$args = json_decode($args);
 
 // Database connection
 $serverName = "bathentrepreneurs.database.windows.net";
