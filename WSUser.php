@@ -43,7 +43,7 @@ class WSUser {
         while($r = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
             $rows[] = $r;
         }
-
+        echo 'made it here';
         echo json_encode($rows);
     }
 
