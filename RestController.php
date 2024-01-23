@@ -1,5 +1,4 @@
 <?php
-ini_set("allow_url_fopen", true);
 // Import classes
 require_once ("WSThoughts.php");
 require_once ("WSUser.php");
@@ -18,9 +17,11 @@ if (isset($_GET["ws"]) and isset($_GET["proc"]))
 }
 
 $args = file_get_contents('php://input');
-echo $args;
 $args = json_decode($args);
-echo $args;
+foreach ($args as $key => $value) {
+    echo "$key | $value <br/>";
+
+}
 
 // Database connection
 $serverName = "bathentrepreneurs.database.windows.net";
