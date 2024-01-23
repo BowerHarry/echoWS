@@ -39,7 +39,7 @@ class WSUser {
         echo $username;
         $encodedPassword = $args->encodedPassword;
         echo $encodedPassword;
-        $sql = 'EXEC LoginCredentialCheck '.$username.' '.$encodedPassword;
+        $sql = 'EXEC LoginCredentialCheck '.''.$username.''.' '.''.$encodedPassword.'';
         echo $sql;
         $stmt = sqlsrv_query($this->conn, $sql);
 
