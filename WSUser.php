@@ -37,9 +37,12 @@ class WSUser {
         $username = $args->username;
         $encodedPassword = $args->encodedPassword;
         $sql = "EXEC LoginCredentialCheck " + $username + ' ' + $encodedPassword;
+        echo $sql;
         $stmt = sqlsrv_query($this->conn, $sql);
 
         $rows = array();
+        echo $rows[0];
+        echo $rows[1];
         while($r = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
             echo $r;
             $rows[] = $r;
