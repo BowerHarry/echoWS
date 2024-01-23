@@ -18,10 +18,7 @@ if (isset($_GET["ws"]) and isset($_GET["proc"]))
 
 $args = file_get_contents('php://input');
 $args = json_decode($args);
-foreach ($args as $key => $value) {
-    echo "$key | $value <br/>";
 
-}
 
 // Database connection
 $serverName = "bathentrepreneurs.database.windows.net";
@@ -45,7 +42,6 @@ switch ($ws) {
         break;
 
     case "user":
-        echo "user";
         $wsUser = new WSUser($proc, $conn, $args);
         break;
 
