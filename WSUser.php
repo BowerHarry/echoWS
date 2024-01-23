@@ -35,15 +35,12 @@ class WSUser {
 
     function LoginCredentialCheck($args) {
         $username = $args->username;
-        echo $username;
         $encodedPassword = $args->encodedPassword;
-        echo $encodedPassword;
         $sql = 'EXEC LoginCredentialCheck '.'\''.$username.'\''.', '.'\''.$encodedPassword.'\'';
         $stmt = sqlsrv_query($this->conn, $sql);
 
         $rows = array();
         while($r = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
-            echo $r;
             $rows[] = $r;
         }
         echo json_encode($rows);
