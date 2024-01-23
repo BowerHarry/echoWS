@@ -4,8 +4,9 @@ class WSTest {
 
     public $proc;
     public $conn;
+    public $args;
 
-    function __construct($sql, $conn) {
+    function __construct($sql, $conn, $args) {
         $stmt = sqlsrv_query($conn, $sql);
 
         $rows = array();

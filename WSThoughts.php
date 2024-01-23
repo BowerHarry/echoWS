@@ -4,8 +4,9 @@ class WSThoughts {
 
     public $proc;
     public $conn;
+    public $args;
 
-    function __construct($proc, $conn) {
+    function __construct($proc, $conn, $args) {
         $this->conn = $conn;
         switch($proc) {
             case "ThoughtSelect":

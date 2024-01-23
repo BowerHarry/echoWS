@@ -12,9 +12,16 @@ if (isset($_GET["ws"]) and isset($_GET["proc"]))
 {
     $ws = trim($_GET["ws"]);
     $proc = trim($_GET["proc"]);
+    $args = "";
 } else {
     echo "WS and PROCEDURE not defined";
     die();
+}
+
+if (isset($_GET["args"]))
+{
+    $args = trim($_GET["args"]);
+    $args = json_decode($args);
 }
 
 // Database connection
@@ -35,18 +42,18 @@ if( $conn ) {
 switch ($ws) {
 
     case "thoughts":
-        $wsThoughts = new WSThoughts($proc, $conn);
+        $wsThoughts = new WSThoughts($proc, $conn, $args);
         break;
 
     case "user":
-        $wsUser = new WSUser($proc, $conn);
+        $wsUser = new WSUser($proc, $conn, $args);
         break;
 
     case "friendship":
-        $wsFriendship = new WSFriendship($proc, $conn);
+        $wsFriendship = new WSFriendship($proc, $conn, $args);
         break;
     case "test":
-        $wsTest = new WSTest($proc, $conn);
+        $wsTest = new WSTest($proc, $conn, $args);
         break;
     default:
         echo "WS";
